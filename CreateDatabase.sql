@@ -9,6 +9,8 @@ CREATE TABLE Osoby (
 	Imie varchar(255),
 	Nazwisko varchar(255)
 );
+
+
 --DROP TABLE Osoby;
 --DROP TABLE Redaktorzy;
 --DROP TABLE Graficy;
@@ -49,7 +51,7 @@ CREATE TABLE Teksty (
 );
 
 CREATE TABLE Okladki (
-	ID_okladki int NOT NULL,
+	ID_okladki int IDENTITY(1,1) NOT NULL,
 	ID_grafika int NOT NULL,
 	Obraz int,
 	Rozmiar_x int, 
@@ -66,7 +68,7 @@ CREATE TABLE Wydania (
 	ID_autora int,
 	ID_okladki int,
 	NumerWydania int,
-	KosztRedakcji DECIMAL(5,2),
+	KosztRedakcji DECIMAL(7,2),
 	KosztDrukuZaSztuke DECIMAL(5,2),
 	Dlugosc int,
 	DataWydania DATE,
@@ -75,6 +77,10 @@ CREATE TABLE Wydania (
 	FOREIGN KEY (ID_autora, TytulTekstu) REFERENCES Teksty(ID_autora, Tytul),
 	FOREIGN KEY (ID_okladki) REFERENCES Okladki(ID_okladki)
 );
+
+
+--ALTER TABLE Wydania ALTER COLUMN KosztRedakcji DECIMAL(7,2);
+
 
 CREATE TABLE Ksiegarnie (
 	Nazwa varchar(255) NOT NULL PRIMARY KEY,
