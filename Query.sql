@@ -55,3 +55,21 @@ WHERE LiczbaEgzemplarzy > 300 AND LiczbaEgzemplarzy < 500;
 
 DROP TABLE WydaniaSprzedaz;
 DROP TABLE SumaSprzedazy;
+
+
+--Wypisz ID ok³adki z najlepiej sprzedaj¹cych siê 
+--ksi¹¿ek dla ka¿dego grafika i podaj liczbê 
+--sprzedanych kopii.
+SELECT ID_grafika, Wydania.ID_okladki, Wydania.ISBN, LiczbaEgzemplarzy
+INTO OkladkiGraficy
+FROM Okladki, Wydania, Sprzeda¿
+WHERE Wydania.ID_okladki = Okladki.ID_okladki
+	AND Sprzeda¿.ISBN = Wydania.ISBN
+ORDER BY ID_grafika;
+
+SELECT ID_grafika, ID_okladki, SUM(LiczbaEgzemplarzy) AS LiczbaEgzemplarzy
+FROM OkladkiGraficy
+GROUP BY ID_grafika, ID_okladki
+ORDER BY ID_grafika;
+
+DROP TABLE OkladkiGraficy;
