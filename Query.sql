@@ -27,7 +27,31 @@ ORDER BY ID_autora;
 DROP TABLE AutorzyRedaktorzy;
 DROP TABLE AutorzyRedaktorzyLiczbaPoprawionych;
 
---Wypisz wszystkich autorów, których suma 
+
+
+--Wypisz ID wszystkich autorów, których suma 
 --sprzeda¿y wydañ o tekstach z gatunku fantasy 
 --by³a wiêksza od 300, ale mniejsza od 500
 
+SELECT Wydania.ID_autora, TytulTekstu, LiczbaEgzemplarzy
+INTO WydaniaSprzedaz
+FROM Wydania, Sprzeda¿, Teksty
+WHERE Wydania.ISBN = Sprzeda¿.ISBN
+	AND Teksty.ID_autora = Wydania.ID_autora
+	AND Teksty.Tytul = Wydania.TytulTekstu
+	AND Gatunek='Fantasy';
+
+SELECT ID_autora, SUM(LiczbaEgzemplarzy) AS LiczbaEgzemplarzy
+INTO SumaSprzedazy
+FROM WydaniaSprzedaz
+GROUP BY ID_autora
+ORDER BY SUM(LiczbaEgzemplarzy) DESC;
+
+--SELECT Imie, Nazwisko--FROM SumaSprzedazy, Osoby--WHERE ID = ID_autora AND LiczbaEgzemplarzy > 300 AND LiczbaEgzemplarzy < 500;
+
+SELECT ID_autora
+FROM SumaSprzedazy
+WHERE LiczbaEgzemplarzy > 300 AND LiczbaEgzemplarzy < 500;
+
+DROP TABLE WydaniaSprzedaz;
+DROP TABLE SumaSprzedazy;

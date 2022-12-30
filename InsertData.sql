@@ -211,6 +211,7 @@ INSERT INTO Okladki(ID_grafika, Obraz, Rozmiar_x, Rozmiar_y, Czcionka) VALUES
 (24, 99, 21, 30, 'Impact');
 
 INSERT INTO Wydania(ISBN, Tytul, TytulTekstu, ID_autora, ID_okladki, NumerWydania, KosztRedakcji, KosztDrukuZaSztuke, Dlugosc, DataWydania, KolorOkladki) VALUES
+('978-098765-43-20', 'WiedŸmin', 'WiedŸmin', 7, 2, 2, 1000.00, 20.50, 46, '2023-08-02', 'czarny'),
 ('978-098765-43-21', 'WiedŸmin', 'WiedŸmin', 7, 2, 1, 877.00, 13.50, 46, '2022-08-02', 'czerwony'),
 ('978-098765-43-22', 'Mroczne materie', 'Mroczne materie', 2, 3, 1, 654.00, 16.50, 88, '2022-06-15', 'zielony'),
 ('978-098765-43-23', 'Harry Potter', 'Harry Potter', 3, 4, 1, 991.00, 22.50, 78, '2022-09-20', '¿ó³ty'),
@@ -229,8 +230,9 @@ INSERT INTO Wydania(ISBN, Tytul, TytulTekstu, ID_autora, ID_okladki, NumerWydani
 ('978-098765-43-36', '£agodne wprowadzenie do analizy algorytmów', '£agodne wprowadzenie do analizy algorytmów', 6, 11, 6, 24356.00, 32.50, 96, '2021-05-26', '¿ó³ty'),
 ('978-098765-43-37', '£agodne wprowadzenie do analizy algorytmów', '£agodne wprowadzenie do analizy algorytmów', 6, 11, 7,  2465.00, 44.50, 96, '2022-05-26', 'bia³y');
 
-
 INSERT INTO Sprzeda¿(ISBN, NazwaKsiegarni, DataTransakcji, LiczbaEgzemplarzy, CenaZaEgzemplarz, CzyElektroniczne) VALUES
+('978-098765-43-20', 'Wschodnia', '2023-05-02', 100, 15.50, 0),
+('978-098765-43-20', 'Pod molo', '2023-07-02', 290, 17.50, 1),
 ('978-098765-43-21', 'Ksiegarnia PG', '2022-07-02', 50, 15.50, 0),
 ('978-098765-43-22', 'Ksiegarnia PAN', '2022-05-15', 200, 23.50, 0),
 ('978-098765-43-23', 'Papierownia', '2022-08-20', 70, 12.50, 0),
