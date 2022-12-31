@@ -73,3 +73,26 @@ GROUP BY ID_grafika, ID_okladki
 ORDER BY ID_grafika;
 
 DROP TABLE OkladkiGraficy;
+
+
+--ZADANIA ROBERTA
+
+--Podaj wszystkie tytu³y i ISBN wydañ dostêpne 
+--w ksiêgarniach pod adresem Gdañsk, 
+--ul. Narutowicza 17, wydane po 2010 roku
+
+SELECT Wydania.Tytul, Wydania.ISBN
+FROM Wydania, Sprzeda¿, Ksiegarnie
+WHERE Ksiegarnie.Miasto = 'Gdañsk'
+	AND Ksiegarnie.Ulica = 'Narutowicza'
+	AND Ksiegarnie.NumerDomu = 17
+	AND Wydania.ISBN = Sprzeda¿.ISBN
+	AND NazwaKsiegarni = Nazwa;
+
+--Wypisz œredni¹ wysokoœæ i szerokoœæ ok³adek 
+--dla wydañ z kosztem druku za sztukê poni¿ej 20 z³
+
+SELECT AVG(Rozmiar_x), AVG(Rozmiar_y)
+FROM Okladki, Wydania
+WHERE KosztDrukuZaSztuke < 20
+	AND Wydania.ID_okladki = Okladki.ID_okladki;
