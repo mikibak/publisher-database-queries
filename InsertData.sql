@@ -1,4 +1,4 @@
-USE Wydawnictwo;
+USE Wydawnictwo1;
 
 INSERT INTO Ksiegarnie(Nazwa, Miasto, Ulica, NumerDomu) VALUES 
 	('Ksiegarnia PG', 'GdaÒsk', 'Narutowicza', '17'),
@@ -190,7 +190,7 @@ INSERT INTO Teksty(ID_autora, Tytul, Gatunek, Jezyk, Dlugosc, DataPrzyjecia) VAL
 (3, 'Harry Potter', 'Fantasy', 'polski', 78, '2022-08-20'),
 (4, 'Lúnienie', 'Horror', 'polski', 50, '2022-09-12'),
 (5, 'Dziennik cwaniaczka', 'Komedia', 'polski', 30, '2022-03-06'),
-(1, 'Gone with the Wind', 'Romans', 'polski', 76, '2022-01-11'),
+(1, 'Gone with the Wind', 'Romans', 'niemiecki', 76, '2022-01-11'),
 (8, 'Niezgodna', 'Science fiction', 'polski', 55, '2022-02-28'),
 (9, 'Z≥odziejka ksiπøek', 'Dramat', 'polski', 25, '2022-04-07'),
 (10, 'Mistrz i Ma≥gorzata', 'Fantasy', 'polski', 80, '2022-06-19'),
@@ -208,7 +208,8 @@ INSERT INTO Okladki(ID_grafika, Obraz, Rozmiar_x, Rozmiar_y, Czcionka) VALUES
 (19, 81, 16, 31, 'Georgia'),
 (14, 25, 22, 21, 'Comic Sans MS'),
 (15, 42, 30, 20, 'Trebuchet MS'),
-(24, 99, 21, 30, 'Impact');
+(24, 99, 21, 30, 'Impact'),
+(24, 12, 20, 50, 'Sanuk');
 
 INSERT INTO Wydania(ISBN, Tytul, TytulTekstu, ID_autora, ID_okladki, NumerWydania, KosztRedakcji, KosztDrukuZaSztuke, Dlugosc, DataWydania, KolorOkladki) VALUES
 ('978-098765-43-20', 'Wiedümin', 'Wiedümin', 7, 2, 2, 1000.00, 20.50, 46, '2023-08-02', 'czarny'),

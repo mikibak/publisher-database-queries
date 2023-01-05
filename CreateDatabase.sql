@@ -1,8 +1,10 @@
-CREATE DATABASE Wydawnictwo;
+--CREATE DATABASE Wydawnictwo1;
+
+--DROP DATABASE Wydawnictwo1;
 
 --zwiazki 1-1 ustawiamy unique na klucz obcy
 
-USE Wydawnictwo;
+USE Wydawnictwo1;
 
 CREATE TABLE Osoby (
 	ID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -19,21 +21,21 @@ CREATE TABLE Osoby (
 --DROP DATABASE Wydawnictwo;
 
 CREATE TABLE Redaktorzy (
-	ID_pracownika int,
+	ID_pracownika int UNIQUE,
 	Specjalizacja varchar(255),
 	FOREIGN KEY (ID_pracownika) REFERENCES Osoby(ID),
 	PRIMARY KEY (ID_pracownika)
 );
 
 CREATE TABLE Graficy (
-	ID_pracownika int,
+	ID_pracownika int UNIQUE,
 	TypGrafiki varchar(255),
 	FOREIGN KEY (ID_pracownika) REFERENCES Osoby(ID),
 	PRIMARY KEY (ID_pracownika)
 );
 
 CREATE TABLE Autorzy (
-	ID_pracownika int,
+	ID_pracownika int UNIQUE,
 	Email varchar(320),
 	FOREIGN KEY (ID_pracownika) REFERENCES Osoby(ID),
 	PRIMARY KEY (ID_pracownika)

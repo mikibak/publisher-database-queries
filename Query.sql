@@ -1,9 +1,9 @@
-USE Wydawnictwo;
+USE Wydawnictwo1;
 
 --Dla ka¿dego autora wypisz jego ID
 --oraz wypisz ID redaktora, 
 --który najczêœciej poprawia³ jego teksty
---(oraz ile razy je poprawia³)
+--(oraz ile razy je poprawia³).
 
 SELECT ID_autora, ID_redaktora
 INTO AutorzyRedaktorzy
@@ -31,7 +31,7 @@ DROP TABLE AutorzyRedaktorzyLiczbaPoprawionych;
 
 --Wypisz ID wszystkich autorów, których suma 
 --sprzeda¿y wydañ o tekstach z gatunku fantasy 
---by³a wiêksza od 300, ale mniejsza od 500
+--by³a wiêksza od 300, ale mniejsza od 500.
 
 SELECT Wydania.ID_autora, TytulTekstu, LiczbaEgzemplarzy
 INTO WydaniaSprzedaz
@@ -46,8 +46,6 @@ INTO SumaSprzedazy
 FROM WydaniaSprzedaz
 GROUP BY ID_autora
 ORDER BY SUM(LiczbaEgzemplarzy) DESC;
-
---SELECT Imie, Nazwisko--FROM SumaSprzedazy, Osoby--WHERE ID = ID_autora AND LiczbaEgzemplarzy > 300 AND LiczbaEgzemplarzy < 500;
 
 SELECT ID_autora
 FROM SumaSprzedazy
@@ -79,7 +77,7 @@ DROP TABLE OkladkiGraficy;
 
 --Podaj wszystkie tytu³y i ISBN wydañ dostêpne 
 --w ksiêgarniach pod adresem Gdañsk, 
---ul. Narutowicza 17, wydane po 2010 roku
+--ul. Narutowicza 17, wydane po 2010 roku.
 
 SELECT Wydania.Tytul, Wydania.ISBN
 FROM Wydania, Sprzeda¿, Ksiegarnie
@@ -90,9 +88,18 @@ WHERE Ksiegarnie.Miasto = 'Gdañsk'
 	AND NazwaKsiegarni = Nazwa;
 
 --Wypisz œredni¹ wysokoœæ i szerokoœæ ok³adek 
---dla wydañ z kosztem druku za sztukê poni¿ej 20 z³
+--dla wydañ z kosztem druku za sztukê poni¿ej 20 z³.
 
-SELECT AVG(Rozmiar_x), AVG(Rozmiar_y)
+SELECT AVG(Rozmiar_x) AS SredniRozmiarX, AVG(Rozmiar_y) AS SredniRozmiarY
 FROM Okladki, Wydania
 WHERE KosztDrukuZaSztuke < 20
 	AND Wydania.ID_okladki = Okladki.ID_okladki;
+
+--Wypisz adresy mailowe autorów, którzy napisali 
+--teksty po niemiecku o d³ugoœci wiêkszej ni¿ 30 
+--arkuszy wydawniczych.
+SELECT Email
+FROM Autorzy, Teksty
+WHERE Autorzy.ID_pracownika = Teksty.ID_autora 
+	AND Jezyk = 'niemiecki'
+	AND Dlugosc > 30
