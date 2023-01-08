@@ -23,7 +23,7 @@ CREATE TABLE Osoby (
 CREATE TABLE Redaktorzy (
 	ID_pracownika int UNIQUE,
 	Specjalizacja varchar(255),
-	FOREIGN KEY (ID_pracownika) REFERENCES Osoby(ID),
+	FOREIGN KEY (ID_pracownika) REFERENCES Osoby(ID) ON DELETE CASCADE,
 	PRIMARY KEY (ID_pracownika)
 );
 
@@ -99,7 +99,7 @@ CREATE TABLE Sprzeda¿ (
 	LiczbaEgzemplarzy int,
 	CenaZaEgzemplarz DECIMAL(5,2),
 	CzyElektroniczne BIT
-	FOREIGN KEY (ISBN) REFERENCES Wydania(ISBN),
+	FOREIGN KEY (ISBN) REFERENCES Wydania(ISBN) ON UPDATE CASCADE,
 	FOREIGN KEY (NazwaKsiegarni) REFERENCES Ksiegarnie(Nazwa)
 );
 
@@ -108,7 +108,7 @@ CREATE TABLE Poprawianie (
 	DataZakonczeniaPrac DATE,
 	ISBN varchar(17),
 	ID_redaktora int,
-	FOREIGN KEY (ISBN) REFERENCES Wydania(ISBN),
-	FOREIGN KEY (ID_redaktora) REFERENCES Redaktorzy(ID_pracownika),
+	FOREIGN KEY (ISBN) REFERENCES Wydania(ISBN) ON UPDATE CASCADE,
+	FOREIGN KEY (ID_redaktora) REFERENCES Redaktorzy(ID_pracownika) ON DELETE CASCADE,
 	PRIMARY KEY (ISBN, ID_redaktora)
 );

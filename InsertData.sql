@@ -195,7 +195,8 @@ INSERT INTO Teksty(ID_autora, Tytul, Gatunek, Jezyk, Dlugosc, DataPrzyjecia) VAL
 (9, 'Z³odziejka ksi¹¿ek', 'Dramat', 'polski', 25, '2022-04-07'),
 (10, 'Mistrz i Ma³gorzata', 'Fantasy', 'polski', 80, '2022-06-19'),
 (11, 'Odyssey', 'Fantasy', 'polski', 96, '2022-10-31'),
-(6,  '£agodne wprowadzenie do analizy algorytmów', 'Dramat', 'arabski', 96, '1991-12-26');
+(6,  '£agodne wprowadzenie do analizy algorytmów', 'Dramat', 'arabski', 96, '1991-12-26'),
+(11, '1984', 'Komedia', 'angielski', 42, '2022-12-31');
 
 
 INSERT INTO Okladki(ID_grafika, Obraz, Rozmiar_x, Rozmiar_y, Czcionka) VALUES
